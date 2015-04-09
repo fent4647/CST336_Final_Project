@@ -10,7 +10,14 @@
     </head>
     
     <body>
-        <p><?=if(isset($_GET['error']{ echo $_GET['error']; }))?></p>
+        <p>
+            <?php
+                if(isset($_GET['error'])) { 
+                    echo $_GET['error']; 
+                }
+                
+            ?>
+        </p>
         
         <form action="login.php" method="post">
             Username: <input type="text" name="username"/>
