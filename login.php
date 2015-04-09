@@ -8,8 +8,8 @@
     $sql = "SELECT * FROM admin WHERE username = :username AND password = :password";
     $stmt = $dbConn->prepare($sql);
     $stmt->execute(array(
-            ":username"=>$username;
-            ":password"=>$password;
+            ":username"=>$username,
+            ":password"=>$password
     ));
     $results = $stmt->fetch();    
     
