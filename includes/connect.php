@@ -1,6 +1,6 @@
 <?php
     function getConnection() {
-        $host = "localhost";
+        $host = "mlc104.csumb.edu";
         $dbname = "airforce";
         $user = "root";
         $pass = "s3cr3t";
