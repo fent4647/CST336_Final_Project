@@ -1,21 +1,24 @@
 <?php
-
+    //require('includes/session.php');
+    session_start();
 ?>
 
 <!DOCTYPE HTML>
 <html>
     <head>
         <meta charset="UTF-8">
+        <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
         <title></title>
+        
         <style>
-            p {
-                margin:center;
-            }
             
-            h2 {
-                border-style:round 8px solid;
-                border-width:32px;
-                background:#AAA;
+            #parent_div {
+                border:none;
+                border-color:#000;
+                border-style:round;
+            }
+            p {
+                color:#FF0000;
             }
         </style>
         
@@ -24,11 +27,22 @@
             function parentButton() {
                 document.getElementById('parent').innerHTML = "PARENT";
             }
-            
         </script>
+    
     </head>
+    
     <body onload="parentButton()">
-        <h2 id="parent"></h2>
-        <p>Admin</p>
+        <div id="parent_div">
+            
+            <h1><a href="parentLogin.php" id="parent"></a></h1>
+        </div>
+        
+        <h6><a href="adminLogin.php">Admin</a></h6>
+        
+        
     </body>
+    
+    <script>
+            
+    </script>
 </html>

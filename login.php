@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require('includes/connect.php');
     $dbConn = getConnection();
 
@@ -17,7 +18,7 @@
     if(empty($results)) {
         header("Location: index.php?error=WRONG USERNAME/PASSWORD");
     }else {
-        header("Location: mainhome.php");
+       header("Location: mainhome.php");
     }
 
 ?>
