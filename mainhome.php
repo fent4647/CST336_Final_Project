@@ -21,7 +21,7 @@
                 text-align:center;
                 
                 width:512px;
-                height:72px;
+                height:128px;
                 position: absolute;
                 top:0;
                 bottom: 0;
@@ -84,7 +84,7 @@
                 <h3 id="headerTwo"></h3>
                 <form action="adminLogin.php" method="post">
                     Username: <input type="text" name="username"/>
-                    Password: <input type="text" name="password"/>
+                    Password: <input type="text" name="password"/><br /><br />
                     <input type="submit" value="Login"/>
                 </form>
             </div>
