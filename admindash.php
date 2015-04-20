@@ -18,7 +18,7 @@
         <nav>
             <a href="">Main</a>
             <a href="">Checked In</a>
-            <a href="">Logout</a>
+            <a href="logout.php">Logout</a>
         </nav>
             
             

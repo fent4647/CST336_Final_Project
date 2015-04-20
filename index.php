@@ -27,8 +27,12 @@
                 padding:64px;
             }
             
-            p{
+            p {
                 float:left;
+            }
+            
+            #linkSwitch {
+                color:#FF0000;
             }
       </style>
     </head>
@@ -37,13 +41,13 @@
         <div id="wrapper">
             <div id="header"><h1>Welcome To HareSomthing</h1></div>
         
-            <p>Please Login...</p>
-            
             <div id="loginForm">
-                <p>
+                <p id="linkSwitch">
                     <?php
                         if(isset($_GET['error'])) { 
-                        echo $_GET['error']; 
+                            echo $_GET['error']; 
+                        }else if(isset($_GET['logout'])) {
+                            echo $_GET['logout'];     
                         }
                 
                     ?>
