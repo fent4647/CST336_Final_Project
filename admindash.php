@@ -13,7 +13,16 @@
         <title></title>
     </head>
     <body>
-        
-        
+        <div id="footer">
+            
+        <nav>
+            <a href="">Main</a>
+            <a href="">Checked In</a>
+            <a href="">Logout</a>
+        </nav>
+            
+            
+            
+        </div>
     </body>
 </html>

@@ -18,7 +18,7 @@
     
 
     if(empty($results)) {
-        header("Location: mainhome.php");
+        header("Location: mainhome.php?error=ADMIN LOGIN FAILED");
     }else {
         $_SESSION['username'] = $results['username'];
         $_SESSION['name'] = $results['first_name'] . " " . $results['last_name'];
