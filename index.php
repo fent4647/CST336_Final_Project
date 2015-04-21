@@ -5,7 +5,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Hare</title>
+        <title>Heir Force</title>
         <link href="css/style.css" rel="stylesheet">
         <style>
             #wrapper {
@@ -39,7 +39,7 @@
     
     <body>
         <div id="wrapper">
-            <div id="header"><h1>Welcome To HareSomthing</h1></div>
+            <div id="header"><h1>Welcome To Heir Force</h1></div>
         
             <div id="loginForm">
                 <p id="linkSwitch">
