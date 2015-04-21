@@ -1,0 +1,23 @@
+/*
+    Document   : FinalProject/CST336_Final_Project/css/stylesheet.css
+    Created on : 2015-04-21 12:07 AM
+    Author     : saymtfmtfmtf
+    Description:
+    Purpose of the stylesheet follows.
+    To change this template use Tools | Templates.
+*/
+
+#header {
+    box-shadow: 10px 10px 5px #e8e8e8;
+    background:#46c8e2;
+    text-align:center;
+} 
+
+#loginForm {
+    margin:auto;
+}
+
+
+form {
+    padding:2px;    
+}

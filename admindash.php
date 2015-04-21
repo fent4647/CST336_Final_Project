@@ -1,28 +1,33 @@
 <?php
     //require('includes/session.php');
     session_start();
-
-    echo "Welcome, " . $_SESSION['name'];
-    
-
 ?>
 
 <!DOCTYPE HTML>
 <html>
     <head>
+        <link href="css/style.css" rel="stylesheet">
         <title></title>
     </head>
     <body>
-        <div id="footer">
+        <div id="wrapper">
+            <div id="header">
+                <h1>Admin Panel</h1>
+                <nav>
+                    <a href="">Main</a>
+                    <a href="">Checked In</a>
+                    <a href="logout.php">Logout</a>
+                </nav>
+            </div>
             
-        <nav>
-            <a href="">Main</a>
-            <a href="">Checked In</a>
-            <a href="logout.php">Logout</a>
-        </nav>
             
+            <div id="body">
+                
+            </div>
             
-            
+            <div id="footer">
+                
+            </div>
         </div>
     </body>
 </html>

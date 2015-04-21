@@ -8,7 +8,7 @@
     <head>
         <meta charset="UTF-8">
         
-        <link href="css/stylesheet.css" rel="stylesheet"/>
+        <link href="css/style.css" rel="stylesheet"/>
         <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
         <title></title>
         

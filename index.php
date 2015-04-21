@@ -6,7 +6,7 @@
 <html>
     <head>
         <title>Hare</title>
-        <link href="css/stylesheet.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
         <style>
             #wrapper {
                 border: 2px solid #000;
