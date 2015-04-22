@@ -7,15 +7,10 @@
     $password = sha1($_POST['password']);
 
     $sql = "SELECT * FROM admin WHERE username = :username AND password = :password";
-    $stmt = $dbConn->prepare($sql);
-    $stmt->execute(array(
-            ":username"=>$username,
-            ":password"=>$password
-    ));
-    $results = $stmt->fetch();    
-    
+    $stmt = pg_query($dbConn, $sql);
+    $result = pg_fetch_row($stmt);
 
-    if(empty($results)) {
+    if(pg_field_is_null($result)) {
         header("Location: index.php?error=WRONG USERNAME/PASSWORD");
     }else {
        header("Location: mainhome.php");
