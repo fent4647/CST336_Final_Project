@@ -1,15 +1,21 @@
 <?php
     function getConnection() {
-        
-        $host = "just132.justhost.com"; //"69.195.126.106"; //
-        $dbname = "saymtfco_heirforce";
-        $user = "saymtfco_cg";
-        $pass = "01234cg";
-        
-        $dbConn = new PDO("mysql:host=$host;dbname=$dbname;", $user, $pass);
-        $dbConn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        
-        return $dbConn;
+       
+        $host = "heroku-postgres-25563edd.herokuapp.com"; 
+        $user = "mfenton@csumb.edu"; 
+        $pass = "fent4647"; 
+        $db = "heroku-postgres-25563edd"; 
+
+        $con = pg_connect("host=$host dbname=$db user=$user password=$pass")
+         or die ("Could not connect to server\n"); 
+
+        $query = "SELECT VERSION()"; 
+        $rs = pg_query($con, $query) or die("Cannot execute query: $query\n"); 
+        $row = pg_fetch_row($rs);
+
+        echo $row[0] . "\n";
+    
+        return $con;
         
     }
 ?>
