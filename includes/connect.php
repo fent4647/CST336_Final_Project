@@ -1,10 +1,10 @@
 <?php
     function getConnection() {
         
-        $host = "just132.justhost.com"; //"69.195.126.106"; //
-        $dbname = "saymtfco_heirforce";
-        $user = "saymtfco_cg";
-        $pass = "01234cg";
+        $host = "heroku-postgres-25563edd.herokuapp.com"; //"69.195.126.106"; //
+        $dbname = "heroku-postgres-25563edd";
+        $user = "mfenton@csumb.edu";
+        $pass = "fent4647";
         
         $dbConn = new PDO("mysql:host=$host;dbname=$dbname;", $user, $pass);
         $dbConn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
