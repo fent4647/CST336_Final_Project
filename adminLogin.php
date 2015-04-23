@@ -9,10 +9,15 @@
     $password = sha1($_POST['password']);
 
     $sql = "SELECT * FROM admin WHERE username = :username AND password = :password";
-    $stmt = pg_query($dbConn, $sql);
-    $results = pg_fetch_row($stmt);
+    $stmt = $dbConn->prepare($sql);
+    $stmt->execute(array(
+            ":username"=>$username,
+            ":password"=>$password
+    ));
+    $results = $stmt->fetch();    
+    
 
-    if(pg_field_is_null($results)) {
+    if(empty($results)) {
         header("Location: mainhome.php?error=ADMIN LOGIN FAILED");
     }else {
         $_SESSION['username'] = $results['username'];
