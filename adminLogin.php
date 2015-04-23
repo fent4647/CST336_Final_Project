@@ -1,28 +1,25 @@
 <?php
-    //require('includes/session.php');
-    require('includes/connect.php');
     session_start();
-
+    
+    require('includes/session.php');
+    require('includes/connect.php');
     $dbConn = getConnection();
 
     $username = $_POST['username'];
-    $password = sha1($_POST['password']);
+    $password = $_POST['password'];
 
-    $sql = "SELECT * FROM admin WHERE username = :username AND password = :password";
-    $stmt = $dbConn->prepare($sql);
-    $stmt->execute(array(
-            ":username"=>$username,
-            ":password"=>$password
-    ));
-    $results = $stmt->fetch();    
+    $sql = "SELECT * FROM admin WHERE username = $1 AND password = $2";
     
-
-    if(empty($results)) {
-        header("Location: mainhome.php?error=ADMIN LOGIN FAILED");
-    }else {
-        $_SESSION['username'] = $results['username'];
-        $_SESSION['name'] = $results['first_name'] . " " . $results['last_name'];
+    $stmt = pg_query_params($dbConn, $sql, array($username, $password));
+    $res = pg_fetch_row($stmt);
         
-        header("Location: admindash.php");
-    }
+    print_r($res);
+   
+    
+     if(empty($res)) {
+        header("Location: index.php?error=WRONG USERNAME/PASSWORD");
+     }else {
+       header("Location: mainhome.php");
+     }
+    
 ?>

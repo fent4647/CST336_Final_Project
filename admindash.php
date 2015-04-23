@@ -1,6 +1,6 @@
 <?php
-    //require('includes/session.php');
     session_start();
+    require('includes/session.php');
 ?>
 
 <!DOCTYPE HTML>
