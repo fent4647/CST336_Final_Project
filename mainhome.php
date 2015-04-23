@@ -1,5 +1,4 @@
 <?php
-    //require('includes/session.php');
     session_start();
 ?>
 
@@ -13,11 +12,10 @@
         <title></title>
         
         <style>
-            
             #wrapper {
-                 border: 2px solid #000;
-                box-shadow: 10px 10px 5px #888888;
-                background:#FFF;
+                border: 2px solid #ffffff;
+                box-shadow: 10px 10px 5px #e5e5e5;
+                background:#46c8e2;
                 text-align:center;
                 
                 width:512px;
@@ -32,6 +30,7 @@
                 padding-top:8px !important;
                 padding:64px;
             }
+            
             
             a {
                 text-decoration:none;
@@ -70,7 +69,7 @@
     <body onload="parentButton()">
         <div id="wrapper">
             
-            <span id="operationP"></span><a href="parentLogin.php" id="parent"></a>
+            <span id="operationP"></span><a href="parent.php" id="parent"></a>
             <span id="operationA"></span><a id="admin">Admin</a>
             <div id="adminLogin">
                 <p>

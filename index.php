@@ -8,10 +8,6 @@
         <title>Heir Force</title>
         <link href="css/style.css" rel="stylesheet">
         <style>
-            body {
-                background:#000;
-            }
-            
             #wrapper {
                 border: 2px solid #ffffff;
                 box-shadow: 10px 10px 5px #e5e5e5;
