@@ -1,6 +1,12 @@
 <?php
-    
-    
+    session_start();
+    //require('includes/session.php');
+    include('includes/checkdatabase.php');
+
+
+    if(isset($_GET['finish'])) {
+       
+    }
 ?>
 
 <!DOCTYPE HTML>
@@ -63,15 +69,15 @@
                     <fieldset>
                         <legend>1</legend>
                     <h4>Child's Information</h4>
-                    First Name: <input type="text" name="cFirstName" require/><br />
+                    First Name: <input type="text" name="cFirstName" required/><br />
                     Middle Initial:<input type="text" name="cMiddleInit" maxlength="1" size="2"/><br />
-                    Last Name: <input type="text" name="cLastName" require/><br />
+                    Last Name: <input type="text" name="cLastName" required/><br />
                 
                     <h4>Parent's Information</h4>
-                    First Name: <input type="text" name="pFirstName" require/><br />
-                    Last Name: <input type="text" name="pLastName" require/><br />
-                    Relation: <input type="text" name="pRelation" require/><br />
-                    Contact Number: <input type="text" name="pNumber" require/><br />
+                    First Name: <input type="text" name="pFirstName" required/><br />
+                    Last Name: <input type="text" name="pLastName" required/><br />
+                    Relation: <input type="text" name="pRelation" required/><br />
+                    Contact Number: <input type="text" name="pNumber" required/><br />
                     </fieldset>
                 </div>
                
@@ -81,15 +87,15 @@
                     <fieldset>
                         <legend>2</legend>
                     <h4>Child's Information</h4>
-                    First Name: <input type="text" name="cFirstName" require/><br />
+                    First Name: <input type="text" name="cFirstName" required/><br />
                     Middle Initial:<input type="text" name="cMiddleInit" maxlength="1" size="2"/><br />
-                    Last Name: <input type="text" name="cLastName" require/><br />
+                    Last Name: <input type="text" name="cLastName" required/><br />
                 
                     <h4>Parent's Information</h4>
-                    First Name: <input type="text" name="pFirstName" require/><br />
-                    Last Name: <input type="text" name="pLastName" require/><br />
-                    Relation: <input type="text" name="pRelation" require/><br />
-                    Contact Number: <input type="text" name="pNumber" require/><br />
+                    First Name: <input type="text" name="pFirstName" required/><br />
+                    Last Name: <input type="text" name="pLastName" required/><br />
+                    Relation: <input type="text" name="pRelation" required/><br />
+                    Contact Number: <input type="text" name="pNumber" required/><br />
                     </fieldset>
                 </div>
                 
@@ -99,15 +105,15 @@
                     <fieldset>
                         <legend>3</legend>
                     <h4>Child's Information</h4>
-                    First Name: <input type="text" name="cFirstName" require/><br />
+                    First Name: <input type="text" name="cFirstName" required/><br />
                     Middle Initial:<input type="text" name="cMiddleInit" maxlength="1" size="2"/><br />
-                    Last Name: <input type="text" name="cLastName" require/><br />
+                    Last Name: <input type="text" name="cLastName" required/><br />
                 
                     <h4>Parent's Information</h4>
-                    First Name: <input type="text" name="pFirstName" require/><br />
-                    Last Name: <input type="text" name="pLastName" require/><br />
-                    Relation: <input type="text" name="pRelation" require/><br />
-                    Contact Number: <input type="text" name="pNumber" require/><br />
+                    First Name: <input type="text" name="pFirstName" required/><br />
+                    Last Name: <input type="text" name="pLastName" required/><br />
+                    Relation: <input type="text" name="pRelation" required/><br />
+                    Contact Number: <input type="text" name="pNumber" required/><br />
                     </fieldset>
                 </div>
                 
@@ -117,15 +123,15 @@
                     <fieldset>
                         <legend>4</legend>
                     <h4>Child's Information</h4>
-                    First Name: <input type="text" name="cFirstName" require/><br />
+                    First Name: <input type="text" name="cFirstName" required/><br />
                     Middle Initial:<input type="text" name="cMiddleInit" maxlength="1" size="2"/><br />
-                    Last Name: <input type="text" name="cLastName" require/><br />
+                    Last Name: <input type="text" name="cLastName" required/><br />
                 
                     <h4>Parent's Information</h4>
-                    First Name: <input type="text" name="pFirstName" require/><br />
-                    Last Name: <input type="text" name="pLastName" require/><br />
-                    Relation: <input type="text" name="pRelation" require/><br />
-                    Contact Number: <input type="text" name="pNumber" require/><br />
+                    First Name: <input type="text" name="pFirstName" required/><br />
+                    Last Name: <input type="text" name="pLastName" required/><br />
+                    Relation: <input type="text" name="pRelation" required/><br />
+                    Contact Number: <input type="text" name="pNumber" required/><br />
                     </fieldset>
                 </div>
                 
@@ -135,15 +141,15 @@
                     <fieldset>
                         <legend>5</legend>
                     <h4>Child's Information</h4>
-                    First Name: <input type="text" name="cFirstName" require/><br />
+                    First Name: <input type="text" name="cFirstName" required/><br />
                     Middle Initial:<input type="text" name="cMiddleInit" maxlength="1" size="2"/><br />
-                    Last Name: <input type="text" name="cLastName" require/><br />
+                    Last Name: <input type="text" name="cLastName" required/><br />
                 
                     <h4>Parent's Information</h4>
-                    First Name: <input type="text" name="pFirstName" require/><br />
-                    Last Name: <input type="text" name="pLastName" require/><br />
-                    Relation: <input type="text" name="pRelation" require/><br />
-                    Contact Number: <input type="text" name="pNumber" require/>
+                    First Name: <input type="text" name="pFirstName" required/><br />
+                    Last Name: <input type="text" name="pLastName" required/><br />
+                    Relation: <input type="text" name="pRelation" required/><br />
+                    Contact Number: <input type="text" name="pNumber" required/>
                     </fieldset>
                 </div>
                 </div>
