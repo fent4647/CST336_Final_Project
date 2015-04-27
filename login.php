@@ -17,7 +17,8 @@
      if(empty($res)) {
         header("Location: index.php?error=WRONG USERNAME/PASSWORD");
      }else {
-       header("Location: mainhome.php");
+        $_SESSION['username'] = $res[0];
+        header("Location: mainhome.php");
      }
     
 ?>
