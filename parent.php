@@ -1,4 +1,6 @@
 <?php
+    
+    // we need to fix the drop down of childrenAmount to update the page once selected
     session_start();
     require('includes/session.php');
 ?>
