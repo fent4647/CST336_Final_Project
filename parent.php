@@ -58,11 +58,18 @@
             }
         }
         
-        function submit() {
+        function submitData() {
             $.ajax({
-                
-                http://beyond-elvis.codio.io:3000/FinalProject/CST336_Final_Project/includes/parentdb.php;
-                
+                type: "get",
+                url: "http://beyond-elvis.codio.io:3000/FinalProject/CST336_Final_Project/includes/parentdb.php",
+                dataType: "json",
+                data: {"firstName": $('#pFirstName').val(), "lastName": $('#pLastName').val()},
+                success: function(data, status) {
+                    alert(data['firstName']);
+                },
+                complete: function(data, status) {
+                    //alert(data);
+                }
             });
         }
         
@@ -162,6 +169,6 @@
     <script>
         $('#pNumber').change(checkValid);
         $('#childrenAmount').change(updateFormAmount);
-        $('#submitButton').change(submit);
+        $('#submitButton').click(submitData);
     </script>
 </html>

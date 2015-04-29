@@ -1,18 +1,21 @@
 <?php
-    require('checkdatabase.php');
+    require('connect.php');
     $dbConn = getConnection();
     
+    $firstName = $_GET['firstName'];
+    $lastName = $_GET['lastName'];
 
-    //$sql = "SELECT * FROM parent WHERE firstName = $1";
+    $sql = "SELECT * FROM parent WHERE firstName = $1 AND lastName = $2";
     
-    $stmt = pg_query_params($dbConn, $sql, array($pFirstName));
+    $stmt = pg_query_params($dbConn, $sql, array($firstName, $lastName));
     $res = pg_fetch_row($stmt);
     
-    $name = array();
-    if($name['firstName']) {
-        
+    $checkName = array();
+    if(!empty($res)) {
+        $checkName['exists'] = true;
     }else {
-        
+        $checkName['exists'] = false;
     }
-    array_to_json();
+       
+    echo json_encode($checkName);
 ?>
