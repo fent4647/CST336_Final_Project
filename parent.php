@@ -61,11 +61,11 @@
         function submitData() {
             $.ajax({
                 type: "get",
-                url: "http://beyond-elvis.codio.io:3000/FinalProject/CST336_Final_Project/includes/parentdb.php",
+                url: "http://ringo-finance.codio.io:3000/CST336_Final_Project/includes/parentdb.php",
                 dataType: "json",
                 data: {"firstName": $('#pFirstName').val(), "lastName": $('#pLastName').val()},
                 success: function(data, status) {
-                    alert(data['firstName']);
+                    alert(data['firstname']);
                 },
                 complete: function(data, status) {
                     //alert(data);
