@@ -19,7 +19,7 @@
      if(empty($res)) {
         header("Location: index.php?error=WRONG USERNAME/PASSWORD");
      }else {
-       header("Location: mainhome.php");
+       header("Location: admindash.php");
      }
     
 ?>
