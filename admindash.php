@@ -75,37 +75,7 @@
             
             <div id="body">
                 <br />
-                <!--
-                <table border = '7'><!----------- Start Inserted table -----------
-    <?php
-//Row <->
-//Col ^|V
-/*This table Displays each Child's Informaton including: isPresent, child's Name,
- *      Allergies, Emergency contact's Name, and Emergency Contact Phone Number.
- *      This also table is formated as the following:
- *          First for loop displays the table header.
- *          Second for loop displays each of the child's information Row by Row.
- */
-        $Header = ["Present", "Child Name", "Allergies", "Emergency Contact Name", "Emergency Contact Number"];
-        $Data = ["true", "Child1", "None", "Parent1" , "(831)555-1754"];
 
-    foreach ($Header as $header){
-            echo "<td>";
-            echo $header;
-            echo "</td>";
-        }//closes foreach Loop */
-//====================================================================
-echo"<tr>";
-        foreach ($Data as $data){
-            echo "<td>";
-            echo $data;
-            echo "</td>";
-        }//closes foreach Loop *///
-echo"</tr>";
-
-    ?>
-
-        </table><!-----------End  Inserted table ------------------------------->
             </div>
             
             <div id="footer">
