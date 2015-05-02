@@ -58,17 +58,32 @@
             }
         }
         
-        function submitData() {
+        function checkParentInformation() {
             $.ajax({
                 type: "get",
                 url: "http://ringo-finance.codio.io:3000/CST336_Final_Project/includes/parentdb.php",
                 dataType: "json",
                 data: {"firstName": $('#pFirstName').val(), "lastName": $('#pLastName').val()},
                 success: function(data, status) {
-                    alert(data['firstname']);
+                    //alert(data['exists']);
                 },
                 complete: function(data, status) {
                     //alert(data);
+                }
+            });
+        }
+        
+        function checkChildrenInformation() {
+            $.ajax({
+                type: "get",
+                url: "http://ringo-finance.codio.io:3000/CST336_Final_Project/includes/child.php",
+                dataType: "json",
+                data: {"firstnames": "thane", "lastnames": "fenton"},
+                success: function(data, status) {
+                    alert(data['exists']);
+                },
+                complete: function(data, status) {
+                    alert(status);
                 }
             });
         }
@@ -102,9 +117,9 @@
                     <fieldset>
                         <legend>1</legend>
                     <h4>Child's Information</h4>
-                    First Name: <input type="text" name="cFirstName" required/><br />
+                    First Name: <input type="text" name="firstnames[]" required/><br />
                     Middle Initial:<input type="text" name="cMiddleInit" maxlength="1" size="2"/><br />
-                    Last Name: <input type="text" name="cLastName" required/><br />
+                    Last Name: <input type="text" name="lastnames[]" required/><br />
                     </fieldset>
                 </div>
                
@@ -114,9 +129,9 @@
                     <fieldset>
                         <legend>2</legend>
                     <h4>Child's Information</h4>
-                    First Name: <input type="text" name="cFirstName"/><br />
+                    First Name: <input type="text" name="firstnames[]"/><br />
                     Middle Initial:<input type="text" name="cMiddleInit" maxlength="1" size="2"/><br />
-                    Last Name: <input type="text" name="cLastName"/><br />
+                    Last Name: <input type="text" name="lastnames[]"/><br />
                 
                     </fieldset>
                 </div>
@@ -127,9 +142,9 @@
                     <fieldset>
                         <legend>3</legend>
                     <h4>Child's Information</h4>
-                    First Name: <input type="text" name="cFirstName"/><br />
+                    First Name: <input type="text" name="firstnames[]"/><br />
                     Middle Initial:<input type="text" name="cMiddleInit" maxlength="1" size="2"/><br />
-                    Last Name: <input type="text" name="cLastName"/><br />
+                    Last Name: <input type="text" name="lastnames[]"/><br />
                 
                     </fieldset>
                 </div>
@@ -140,9 +155,9 @@
                     <fieldset>
                         <legend>4</legend>
                     <h4>Child's Information</h4>
-                    First Name: <input type="text" name="cFirstName"/><br />
+                    First Name: <input type="text" name="firstnames[]"/><br />
                     Middle Initial:<input type="text" name="cMiddleInit" maxlength="1" size="2"/><br />
-                    Last Name: <input type="text" name="cLastName"/><br />
+                    Last Name: <input type="text" name="lastnames[]"/><br />
                 
                     </fieldset>
                 </div>
@@ -153,9 +168,9 @@
                     <fieldset>
                         <legend>5</legend>
                     <h4>Child's Information</h4>
-                    First Name: <input type="text" name="cFirstName"/><br />
+                    First Name: <input type="text" name="firstnames[]"/><br />
                     Middle Initial:<input type="text" name="cMiddleInit" maxlength="1" size="2"/><br />
-                    Last Name: <input type="text" name="cLastName" ><br />
+                    Last Name: <input type="text" name="lastnames[]" ><br />
                 
                     </fieldset>
                 </div>
@@ -169,6 +184,7 @@
     <script>
         $('#pNumber').change(checkValid);
         $('#childrenAmount').change(updateFormAmount);
-        $('#submitButton').click(submitData);
+        //$('#submitButton').click(checkParentInformation);
+        $('#submitButton').click(checkChildrenInformation)
     </script>
 </html>
