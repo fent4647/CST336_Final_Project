@@ -13,28 +13,25 @@
     <script src="js/hide.js"></script>
     <script type="text/javascript" src="js/checkValid.js"></script>
     <style>
-        #information1, #information2, #information3, #information4, #information5, #submitButton {
+        #information1, #information2, #information3, #information4, #information5, #childrenSubmitButton, #childrenAmount {
             display:none;
         }
     </style>
     <script>
         function hideAll() {
-            $('#information1, #information2, #information3, #information4, #information5, #submitButton')
+            $('#information1, #information2, #information3, #information4, #information5, #childrenSubmitButton')
                 .css('display', 'none');
         }
         
-        
-        function checkValid() {
-            var $num = $('#pNumber').val();
-            if(!/^\(\d{3}\)\d{3}-\d{4}$/.test($num)) {
-                $('#correctFormat').html('Please enter the correct format. (555)555-5555');
-                $('#correctFormat').css('color', '#FF0000');
-                $('#pNumber').focus();
-            }else {
-                $('#correctFormat').empty();
-            }
+        function displayChildren() {
+            $('#childrenAmount')
+                .css('display', 'inline');
         }
         
+        function hideAll() {
+            $('#information1, #information2, #information3, #information4, #information5, #childrenSubmitButton')
+                .css('display', 'none');
+        }
         
         function updateFormAmount() {
             var amount = $('#childrenAmount').val();
@@ -51,7 +48,7 @@
                 case "2":
                     $('#information2, #data').css('display', 'block');
                 case "1":
-                    $('#information1, #data, #submitButton').css('display', 'block');
+                    $('#information1, #data, #childrenSubmitButton').css('display', 'block');
                     break;
                 default:
                     alert("Need To Have Some Children..");
@@ -63,12 +60,19 @@
                 type: "get",
                 url: "http://ringo-finance.codio.io:3000/CST336_Final_Project/includes/parentdb.php",
                 dataType: "json",
-                data: {"firstName": $('#pFirstName').val(), "lastName": $('#pLastName').val()},
+                data: {"firstName": $('#pFirstName').val().toLowerCase(), "lastName": $('#pLastName').val().toLowerCase()},
                 success: function(data, status) {
-                    //alert(data['exists']);
+                    if(data['exists']) {
+                        displayChildren();
+                        hideParent();
+                    }else {
+                        sessionStorage.setItem('parentFirstName', $('#pFirstName').val().toLowerCase());
+                        sessionStorage.setItem('parentLastName', $('#pLastName').val().toLowerCase());
+                        window.location.replace("http://ringo-finance.codio.io:3000/CST336_Final_Project/newParent.php");
+                    }
                 },
                 complete: function(data, status) {
-                    //alert(data);
+                    
                 }
             });
         }
@@ -78,9 +82,17 @@
                 type: "get",
                 url: "http://ringo-finance.codio.io:3000/CST336_Final_Project/includes/child.php",
                 dataType: "json",
-                data: {"firstnames": "thane", "lastnames": "fenton"},
+                data: formDetails.serialize(),
                 success: function(data, status) {
-                    alert(data['exists']);
+                     if(data['exists']) {
+                        displayChildren();
+                        hideParent();
+                    }else {
+                        sessionStorage.setItem('childFirstName', $('#cFirstName').val().toLowerCase());
+                        sessionStorage.setItem('childFirstName', $('#cMiddleInit').val().toLowerCase());
+                        sessionStorage.setItem('childLastName', $('#cLastName').val().toLowerCase());
+                        window.location.replace("http://ringo-finance.codio.io:3000/CST336_Final_Project/newChild.php");
+                    }
                 },
                 complete: function(data, status) {
                     alert(status);
@@ -92,16 +104,19 @@
     <body>
         <div id="wrapper">
             <h1>Parent and Child Information</h1>
-           
-                <fieldset>
+                <div id="parentInformation">
+                    
+                    <fieldset>
                  <h4>Parent's Information</h4>
                     First Name: <input type="text" name="pFirstName" id="pFirstName" placeholder="Anna" required/><br />
                     Last Name: <input type="text" name="pLastName" id="pLastName" placeholder="Voes" required/><br />
-                    Relation: <input type="text" name="pRelation" id="pRelation" placeholder="Mother/Father/Brother.." required/><br />
-                    Contact Number: <input type="text" name="pNumber" id="pNumber" placeholder="(555)555-5555" required/>
-                    <span id="correctFormat"></span><br />
+                    
+                    <input type="submit" name="finish" value="Submit" id="parentSubmitButton"/>
                  </fieldset>
-                
+                </div>
+                <br />
+            
+            
                 <select id="childrenAmount" name="children">
                     <option>Amount of Children</option>
                     <option name="1">1</option>
@@ -110,8 +125,6 @@
                     <option name="4">4</option>
                     <option name="5">5</option>
                 </select>
-                
-                <br />
                 <div id="data">
                     <div id="information1">
                     <fieldset>
@@ -174,9 +187,10 @@
                 
                     </fieldset>
                 </div>
-                </div>
-                <input type="submit" name="finish" value="Submit" id="submitButton"/>
             
+                
+                <input type="submit" name="finish" value="Submit" id="childrenSubmitButton"/>
+            </div>
             
       </div>
     </body>
@@ -184,7 +198,7 @@
     <script>
         $('#pNumber').change(checkValid);
         $('#childrenAmount').change(updateFormAmount);
-        //$('#submitButton').click(checkParentInformation);
-        $('#submitButton').click(checkChildrenInformation)
+        $('#parentSubmitButton').click(checkParentInformation);
+        $('#childrenSubmitButton').click(checkChildrenInformation)
     </script>
 </html>
