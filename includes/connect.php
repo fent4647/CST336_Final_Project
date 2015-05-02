@@ -19,7 +19,7 @@
         
         return $con;
         */ 
-        
+        /*
         $host = "173.254.28.132";
 		$dbname = "saymtfco_heirforce";
 		$username = "saymtfco_cg";
@@ -39,7 +39,7 @@ catch(PDOException $e)
     {
     echo "ERROR " . $e->getMessage();
     }
-
+*/
         
         return $dbConn;
     }
