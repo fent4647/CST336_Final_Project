@@ -1,6 +1,7 @@
 <?php
     session_start();
     require('includes/session.php');
+
 ?>
 
 <!DOCTYPE HTML>
@@ -77,29 +78,6 @@
             });
         }
         
-        function checkChildrenInformation() {
-            $.ajax({
-                type: "get",
-                url: "http://ringo-finance.codio.io:3000/CST336_Final_Project/includes/child.php",
-                dataType: "json",
-                data: formDetails.serialize(),
-                success: function(data, status) {
-                     if(data['exists']) {
-                        displayChildren();
-                        hideParent();
-                    }else {
-                        sessionStorage.setItem('childFirstName', $('#cFirstName').val().toLowerCase());
-                        sessionStorage.setItem('childFirstName', $('#cMiddleInit').val().toLowerCase());
-                        sessionStorage.setItem('childLastName', $('#cLastName').val().toLowerCase());
-                        window.location.replace("http://ringo-finance.codio.io:3000/CST336_Final_Project/newChild.php");
-                    }
-                },
-                complete: function(data, status) {
-                    alert(status);
-                }
-            });
-        }
-        
     </script>
     <body>
         <div id="wrapper">
@@ -116,7 +94,12 @@
                 </div>
                 <br />
             
-            
+                <div id="data">
+                <form action="child.php">
+                    <!-- DISPLAY PARENTS COOR CHILD 
+                    <input type="checkbox" name="child[]">
+                    <input type="checkbox" name="child[]"> 
+                     -->
                 <select id="childrenAmount" name="children">
                     <option>Amount of Children</option>
                     <option name="1">1</option>
@@ -125,7 +108,6 @@
                     <option name="4">4</option>
                     <option name="5">5</option>
                 </select>
-                <div id="data">
                     <div id="information1">
                     <fieldset>
                         <legend>1</legend>
@@ -190,8 +172,10 @@
             
                 
                 <input type="submit" name="finish" value="Submit" id="childrenSubmitButton"/>
+                    
             </div>
             
+                </form>
       </div>
     </body>
     
@@ -199,6 +183,5 @@
         $('#pNumber').change(checkValid);
         $('#childrenAmount').change(updateFormAmount);
         $('#parentSubmitButton').click(checkParentInformation);
-        $('#childrenSubmitButton').click(checkChildrenInformation)
     </script>
 </html>
