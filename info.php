@@ -3,6 +3,23 @@
     require('includes/session.php');
     require('includes/connect.php');
     $dbConn = getConnection();
+
+
+    function getParentChildId() {
+        global $dbConn;
+        $sql = "SELECT * FROM child_parent_table WHERE parentid = " . $_SESSION['parentId'];
+                        $stmt = pg_query($dbConn, $sql);  
+                        $idResults = pg_fetch_all_columns($stmt);
+        return $idResults;
+    }
+
+    function getChildResults($item) {
+        global $dbConn;
+        $sql = "SELECT * FROM child WHERE childid = " . $item['0'];
+        $stmt = pg_query($dbConn, $sql);
+        $childResults = pg_fetch_row($stmt);
+        return $childResults;
+    }
 ?>
 
 <!DOCTYPE HTML>
@@ -15,24 +32,19 @@
     <script src="js/hide.js"></script>
     <script type="text/javascript" src="js/checkValid.js"></script>
     <style>
-        #information1, #information2, #information3, #information4, #information5, #childrenSubmitButton, #childrenAmount {
+        #information1, #information2, #information3, #information4, #information5, #childrenSubmitButton, #childrenAmount, #checkBoxes, #results {
             display:none;
         }
     </style>
     <script>
         function hideAll() {
-            $('#information1, #information2, #information3, #information4, #information5, #childrenSubmitButton')
+            $('#information1, #information2, #information3, #information4, #information5')
                 .css('display', 'none');
         }
         
         function displayChildren() {
-            $('#childrenAmount')
+            $('#childrenAmount, #childrenSubmitButton, #checkBoxes, #results')
                 .css('display', 'inline');
-        }
-        
-        function hideAll() {
-            $('#information1, #information2, #information3, #information4, #information5, #childrenSubmitButton')
-                .css('display', 'none');
         }
         
         function updateFormAmount() {
@@ -50,10 +62,9 @@
                 case "2":
                     $('#information2, #data').css('display', 'block');
                 case "1":
-                    $('#information1, #data, #childrenSubmitButton').css('display', 'block');
+                    $('#information1, #data').css('display', 'block');
                     break;
                 default:
-                    alert("Need To Have Some Children..");
             }
         }
         
@@ -99,17 +110,20 @@
                 <form action="child.php">
                     
                     <?php 
-                        $sql = "SELECT * FROM ";
-                        //pg_query($dbConn, $sql);  
-                        
+                        $idResults = getParentChildId();
+
+                        if(isset($idResults)) {
+                            foreach($idResults as $item) {
+                                $childResults = getChildResults($item);
+                                echo "<input id='checkBoxes' type='checkbox' name='child[]' value='" . $childResults['0'] . "' >";
+                                echo "<span id='results'>" . $childResults['1'] .  " " . $childResults['3'] . "</span>";
+                            }
+                        }
                     
                     ?>
-                    <!-- DISPLAY PARENTS COOR CHILD 
-                    <input type="checkbox" name="child[]"> 
-                    <input type="checkbox" name="child[]">
-                     -->
+                    
                 <select id="childrenAmount" name="children">
-                    <option>Amount of Children</option>
+                    <option>Add a Child</option>
                     <option name="1">1</option>
                     <option name="2">2</option>
                     <option name="3">3</option>
