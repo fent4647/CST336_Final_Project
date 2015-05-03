@@ -20,15 +20,12 @@
     // if so .. add to parentsID / Child Id
 
 
+    $sql = "SELECT * FROM child WHERE firstname = $1 AND lastname = $2";
+    $stmt = pg_query_params($dbConn, $sql, array($firstNames[$i], $lastNames[$i]));
+    $res = pg_fetch_row($stmt);
 
-
-
-
-
-
-
-  //$sql = "SELECT * FROM child WHERE firstname = $1 AND lastname = $2";
-  //$stmt = pg_query_params($dbConn, $sql, array($firstNames[$i], $lastNames[$i]));
-  //$res = pg_fetch_row($stmt);
+    if(!empty()) {
+        
+    }
 	
 ?>
