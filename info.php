@@ -1,7 +1,8 @@
 <?php
     session_start();
     require('includes/session.php');
-
+    require('includes/connect.php');
+    $dbConn = getConnection();
 ?>
 
 <!DOCTYPE HTML>
@@ -96,9 +97,16 @@
             
                 <div id="data">
                 <form action="child.php">
+                    
+                    <?php 
+                        $sql = "SELECT * FROM ";
+                        //pg_query($dbConn, $sql);  
+                        
+                    
+                    ?>
                     <!-- DISPLAY PARENTS COOR CHILD 
-                    <input type="checkbox" name="child[]">
                     <input type="checkbox" name="child[]"> 
+                    <input type="checkbox" name="child[]">
                      -->
                 <select id="childrenAmount" name="children">
                     <option>Amount of Children</option>
