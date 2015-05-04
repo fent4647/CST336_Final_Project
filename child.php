@@ -27,7 +27,7 @@ function checkChildParentTable($res) {
 }
 
 // Child in CURRENTLY_PRESENT table
-function checkPresent() {
+function checkIfPresent($res) {
     global $dbConn;
     $checkPresent = "SELECT childid FROM currently_present WHERE childid = " . $res['0'];
     $stmt = pg_query($dbConn, $checkPresent);
@@ -43,9 +43,9 @@ function checkPresent() {
 
     $checkNames = array();
     $noMatch = array();
-
+    
+    $notFound = false;
     $firstNames = $_GET['firstnames'];
-    $midNames = $_GET['cMiddleInit'];
     $lastNames = $_GET['lastnames'];
 
     
@@ -78,16 +78,22 @@ function checkPresent() {
             }
             
          }else {
+            $notFound = true;
             //Store non child in database in array then add after checking through each child.
-            //$noMatch['firstName'] = $firstNames[$i];
-            //$noMatch['middleInit'] = $midNames[$i];
-            //$noMatch['lastName'] = $lastNames[$i];
+            $noMatch['firstName'] = $firstNames[$i];
+            $noMatch['lastName'] = $lastNames[$i];
             
          }
     }
-
-   // for($i = 0; $i < sizeof($noMatch); $i++) {
-       // echo $noMatch['firstName'] . " " . $noMatch['middleInit'] . " " . $noMatch['lastName'];
-    //}
+    
+    if($notFound) {
+       foreach($noMatch as $i => $value) {
+            echo $noMatch[$i] . " ";
+        } 
+        $_SESSION['noMatch'] = $noMatch;
+    }else {
+        header("Location: confirmation.html");
+    }
+    
 	
 ?>
