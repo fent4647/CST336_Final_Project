@@ -13,6 +13,13 @@
         <title></title>
         
         <style>
+            html { 
+                  background: url(img/background.jpg) no-repeat center center fixed; 
+                  -webkit-background-size: cover;
+                  -moz-background-size: cover;
+                  -o-background-size: cover;
+                  background-size: cover;
+                }
             #wrapper {
                 border: 2px solid #ffffff;
                 box-shadow: 10px 10px 5px #e5e5e5;
@@ -84,7 +91,7 @@
                 <h3 id="headerTwo"></h3>
                 <form action="adminLogin.php" method="post">
                     Username: <input type="text" name="username"/>
-                    Password: <input type="text" name="password"/><br /><br />
+                    Password: <input type="password" name="password"/><br /><br />
                     <input type="submit" value="Login"/>
                 </form>
             </div>
