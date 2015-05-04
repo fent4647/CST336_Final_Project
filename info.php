@@ -2,11 +2,11 @@
     session_start();
     require('includes/session.php');
     require('includes/connect.php');
-    $dbConn = getConnection();
+    $_SESSION['parentId'] = -1;
 
 
     function getParentChildId() {
-        global $dbConn;
+        $dbConn = getConnection();
         $sql = "SELECT * FROM child_parent_table WHERE parentid = " . $_SESSION['parentId'];
                         $stmt = pg_query($dbConn, $sql);  
                         $idResults = pg_fetch_all_columns($stmt);
@@ -14,7 +14,7 @@
     }
 
     function getChildResults($item) {
-        global $dbConn;
+        $dbConn = getConnection();
         $sql = "SELECT * FROM child WHERE childid = " . $item['0'];
         $stmt = pg_query($dbConn, $sql);
         $childResults = pg_fetch_row($stmt);
@@ -28,13 +28,45 @@
     <head>
         <title>Parents</title>
     </head>
+    <link href="css/style.css" rel="stylesheet" />
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="js/hide.js"></script>
     <script type="text/javascript" src="js/checkValid.js"></script>
     <style>
+        
+        #wrapper {
+                border: 2px solid #ffffff;
+                box-shadow: 10px 10px 5px #e5e5e5;
+                background:#46c8e2;
+                text-align:center;
+                
+                width:512px;
+                position: absolute;
+                top:0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+
+                margin: auto;
+                padding-top:8px !important;
+                padding:64px;
+            }
+            
+            
+            a {
+                text-decoration:none;
+                color:#493772;
+                
+            }
+            
+            a:hover {
+                color:#FF0000;
+            }
+        
         #information1, #information2, #information3, #information4, #information5, #childrenSubmitButton, #childrenAmount, #checkBoxes, #results {
             display:none;
         }
+        
     </style>
     <script>
         function hideAll() {
@@ -106,7 +138,7 @@
                 </div>
                 <br />
             
-                <div id="data">
+                
                 <form action="child.php">
                     
                     <?php 
@@ -194,10 +226,8 @@
             
                 
                 <input type="submit" name="finish" value="Submit" id="childrenSubmitButton"/>
-                    
-            </div>
-            
-                </form>
+                 
+          </form>
       </div>
     </body>
     
