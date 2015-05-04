@@ -10,14 +10,14 @@
     function getParentChildId() {
         $dbConn = getConnection();
         $sql = "SELECT * FROM child_parent_table WHERE parentid = " . $_SESSION['parentId'];
-                        $stmt = pg_query($dbConn, $sql);  
-                        $idResults = pg_fetch_all_columns($stmt);
+        $stmt = pg_query($dbConn, $sql);  
+        $idResults = pg_fetch_all_columns($stmt);
         return $idResults;
     }
 
     function getChildResults($item) {
         $dbConn = getConnection();
-        $sql = "SELECT * FROM child WHERE childid = " . $item['0'];
+        $sql = "SELECT * FROM child WHERE childid = " . $item['1'];
         $stmt = pg_query($dbConn, $sql);
         $childResults = pg_fetch_row($stmt);
         return $childResults;
@@ -65,7 +65,7 @@
                 color:#FF0000;
             }
         
-        #information1, #information2, #information3, #information4, #information5, #childrenSubmitButton, #childrenAmount, #checkBoxes, #results {
+        #information1, #information2, #information3, #information4, #information5, #childrenSubmitButton, #childrenAmount {
             display:none;
         }
         
@@ -77,7 +77,7 @@
         }
         
         function displayChildren() {
-            $('#childrenAmount, #childrenSubmitButton, #checkBoxes, #results')
+            $('#childrenAmount, #childrenSubmitButton')
                 .css('display', 'inline');
         }
         
@@ -129,11 +129,21 @@
         <div id="wrapper">
             <h1>Parent and Child Information</h1>
                 <div id="parentInformation">
-                    
                     <fieldset>
-                 <h4>Parent's Information</h4>
-                    First Name: <input type="text" name="pFirstName" id="pFirstName" placeholder="Anna" required/><br />
-                    Last Name: <input type="text" name="pLastName" id="pLastName" placeholder="Voes" required/><br />
+                        <h4>Parent's Information</h4>
+                    <?php 
+                          if(isset($_GET['parentMade'])) {
+                                echo "<h5 style='color:#FF0000'>" . $_GET['parentMade'] . "</h5>";
+                                echo 'First Name: <input type="text" name="pFirstName" id="pFirstName" value=' . $_GET['firstname'] . ' required/><br />';
+                              echo 'Last Name: <input type="text" name="pLastName" id="pLastName" value=' . $_GET['lastname'] . ' required/><br />';
+                          }else {
+                              echo 'First Name: <input type="text" name="pFirstName" id="pFirstName" placeholder="Anna" required/><br />';
+                              echo 'Last Name: <input type="text" name="pLastName" id="pLastName" placeholder="Voes" required/><br />';
+                          }
+                    ?>
+                    
+                 
+                    
                     
                     <input type="submit" name="finish" value="Submit" id="parentSubmitButton"/>
                  </fieldset>
@@ -146,7 +156,7 @@
                     <?php 
                         $idResults = getParentChildId();
 
-                        if(isset($idResults)) {
+                        if(!empty($idResults)) {
                             foreach($idResults as $item) {
                                 $childResults = getChildResults($item);
                                 echo "<input id='checkBoxes' type='checkbox' name='child[]' value='" . $childResults['0'] . "' >";

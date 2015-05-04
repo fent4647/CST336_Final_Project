@@ -1,18 +1,32 @@
 <?php
     session_start();
     require('includes/session.php');
-    require('includes/connect.php');    
+    require('includes/connect.php');  
+    require('includes/childFunctions.php');    
     $dbConn = getConnection();
 
     $sql = "SELECT * FROM currently_present";
     $stmt = pg_query($dbConn, $sql);
     $result = pg_fetch_all($stmt);
-    
+    $Data = array();
+
     if(!empty($result)) {
-        echo sizeof($result);
-       // for($i = 0; $i < sizeof($result); $i++) {
-       //     $result['childId'] . " " . $result['confirmationCode'] . " " . $result['datePresent'];
-       // }
+        foreach($result as $i) {
+            $child = getChildInformation($i['0']); // childs info
+            $cpTable = checkChildParentTable($i); // get parents info
+            
+            $parent = getParentInformation($cpTable['0']);
+            
+            $kid = array();
+            $kid[] = "Present";
+            $kid[] = $child['1'] . " " . $child['3'];
+            $kid[] = $child['6'] . " " .  $child['7'] . " " .  $child['8'];
+            $kid[] = $parent['1'] . " " . $parent['2'];
+            $kid[] = $parent['3'];
+            $Data[] = $kid;  
+          
+            
+        }
     }
     
     
@@ -47,12 +61,7 @@
      *          Second for loop displays each of the child's information Row by Row.
      */
             $Header = ["Present", "Child Name", "Allergies", "Emergency Contact Name", "Emergency Contact Number"];
-            $kid0 = ["true", "Child1", "None", "Parent1" , "(831)555-6541"];
-            $kid1 = ["true", "Child2", "Yogurt", "Parent7" , "(831)555-8841"];
-            $kid2 = ["true", "Child3", "Air", "Parent44" , "(831)555-3458"];
-            $kid3 = ["true", "Child4", "Water", "Parent0" , "(831)555-9722"];
-            $kid4 = ["true", "Child5", "Falling", "Yo' Parent" , "(831)555-1628"];
-            $Data = [$kid0, $kid1, $kid2, $kid3 , $kid4];
+            
             //$i = 0;
       foreach ($Header as $header){
 
