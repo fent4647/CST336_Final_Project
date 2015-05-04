@@ -45,8 +45,8 @@
             <div id="header">
                 <h1>Admin Panel</h1>
                 <nav>
-                    <a href="">Checked In</a>
-                    <a href="">History</a>
+                    <a href="admindash.php">Checked In</a>
+                    <a href="history.php">History</a>
                     <a href="logout.php">Logout</a>
                 </nav>
                 <br />
