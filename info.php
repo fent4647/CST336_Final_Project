@@ -105,7 +105,7 @@
         function checkParentInformation() {
             $.ajax({
                 type: "get",
-                url: "http://ringo-finance.codio.io:3000/CST336_Final_Project/includes/parentdb.php",
+                url: "http://ivory-orca.codio.io:3000/CST336_Final_Project/includes/parentdb.php",
                 dataType: "json",
                 data: {"firstName": $('#pFirstName').val().toLowerCase(), "lastName": $('#pLastName').val().toLowerCase()},
                 success: function(data, status) {
