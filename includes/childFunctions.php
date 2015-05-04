@@ -22,6 +22,18 @@ function checkChildParentTable($res) {
     return $in;
 }
 
+
+// GET is in CHILD_PARENT_TABLE
+function getParentFromChildParentTable($id) {
+    global $dbConn;
+    $sqlCheck = "SELECT parentid FROM child_parent_table WHERE childid = $id";
+    $stmt = pg_query($dbConn, $sqlCheck);
+    $in = pg_fetch_row($stmt);
+    
+    return $in;
+}
+
+
 // Child in CURRENTLY_PRESENT table
 function checkIfPresent($res) {
     global $dbConn;
@@ -45,8 +57,8 @@ function getChildInformation($childId) {
 
 function getParentInformation($parentId) {
     global $dbConn;
-    $checkPresent = "SELECT * FROM parent WHERE parent = $1";
-    $stmt = pg_query_params($dbConn, $checkPresent, array($parentId));
+    $checkPresent = "SELECT * FROM parent WHERE parentid = $parentId";
+    $stmt = pg_query($dbConn, $checkPresent);
     $isPresent = pg_fetch_row($stmt);
     
     return $isPresent;
