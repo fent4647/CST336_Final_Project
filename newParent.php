@@ -7,7 +7,7 @@
     if(isset($_GET['submit'])) {
         $sql = "INSERT INTO parent (firstname, lastname, phonenumber, city, address) VALUES ($1, $2, $3, $4, $5)";
         pg_query_params($dbConn, $sql, array(strtolower($_GET['pFirstName']), strtolower($_GET['pLastName']), strtolower($_GET['pNumber']), strtolower($_GET['pCity']), strtolower($_GET['pAddress'])));
-        header("Location: childInfo.php");
+        header("Location: info.php?parentMade=Parent Has Been Created&firstname='" . $_GET['pFirstName'] . "'&lastname= '" . $_GET['pLastName'] . "'");
     }
 ?>
 

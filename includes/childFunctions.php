@@ -33,5 +33,24 @@ function checkIfPresent($res) {
 }
 
 
+function getChildInformation($childId) {
+    global $dbConn;
+    $checkPresent = "SELECT * FROM child WHERE childid = $1";
+    $stmt = pg_query_params($dbConn, $checkPresent, array($childId));
+    $isPresent = pg_fetch_row($stmt);
+    
+    return $isPresent;
+}
+
+
+function getParentInformation($parentId) {
+    global $dbConn;
+    $checkPresent = "SELECT * FROM parent WHERE parent = $1";
+    $stmt = pg_query_params($dbConn, $checkPresent, array($parentId));
+    $isPresent = pg_fetch_row($stmt);
+    
+    return $isPresent;
+}
+
 /* EOF FUNCTION TABLES */
 ?>
