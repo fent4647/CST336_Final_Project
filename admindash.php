@@ -9,13 +9,21 @@
     $stmt = pg_query($dbConn, $sql);
     $result = pg_fetch_all($stmt);
     $Data = array();
-
+    $size = 0;
     if(!empty($result)) {
         foreach($result as $i) {
-            $child = getChildInformation($i['0']); // childs info
-            $cpTable = checkChildParentTable($i); // get parents info
+            $child = getChildInformation($i['childid']); // childs info
+            $cp = checkChildsExistance($size, $child['1'], $child['3']);
+            
+            $cpTable = checkChildParentTable($cp); // get parents info
             
             $parent = getParentInformation($cpTable['0']);
+            
+            
+            echo $child['1'] . " " . $child['3'];
+            echo $child['6'] . " " .  $child['7'] . " " .  $child['8'];
+            echo $parent['1'] . " " . $parent['2'];
+            echo $parent['3'];
             
             $kid = array();
             $kid[] = "Present";
@@ -25,7 +33,7 @@
             $kid[] = $parent['3'];
             $Data[] = $kid;  
           
-            
+            $size++;
         }
     }
     
