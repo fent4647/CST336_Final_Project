@@ -20,5 +20,9 @@
         $_SESSION['username'] = $res[0];
         header("Location: mainhome.php");
      }
-    
+   
+    /*
+    $stmt = $dbConn->prepare();
+    $stmt->execute(); 
+    */
 ?>

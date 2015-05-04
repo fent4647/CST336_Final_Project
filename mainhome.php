@@ -70,7 +70,7 @@
     <body onload="parentButton()">
         <div id="wrapper">
             
-            <span id="operationP"></span><a href="parent.php" id="parent"></a>
+            <span id="operationP"></span><a href="info.php" id="parent"></a>
             <span id="operationA"></span><a id="admin">Admin</a>
             <div id="adminLogin">
                 <p>
