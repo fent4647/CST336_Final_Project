@@ -10,7 +10,7 @@
     require('includes/childFunctions.php');    
     $dbConn = getConnection();
 /* Requirements */
-
+$_SESSION['parentId'] = -1;
 ?>
 
 <!DOCTYPE HTML>

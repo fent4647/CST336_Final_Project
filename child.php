@@ -104,8 +104,8 @@
             }else {
                     echo "<tr>";
                     echo "<td>" . $firstNames[$i] . "</td>";
-                    echo "<input type='hidden' name='firstnames[]' value='" . $firstNames[$i] . "' />";
-                    echo "<input type='hidden' name='lastnames[]' value='" . $lastNames[$i] . "' />";
+                    echo "<input type='hidden' value='" . $firstNames[$i] . "' />";
+                    echo "<input type='hidden' value='" . $lastNames[$i] . "' />";
                     echo "<td>Sorry, " . $firstNames[$i] . " " . $lastNames[$i] . " is currently logged in.. </td>";
                     echo "</tr>";
                 }

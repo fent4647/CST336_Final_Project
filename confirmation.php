@@ -87,7 +87,7 @@
         }
      ?>
     </table>
-        <button onclick="mainhome.php'">Confirm</button>
+        <button onclick="location.href='mainhome.php'">Confirm</button>
 
     </div>
 </body>
