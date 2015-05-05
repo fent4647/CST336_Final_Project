@@ -62,6 +62,10 @@
                 <table border="7"><!----------- Start Inserted table ----------->
 
     <?php
+        if(isset($_GET['checkedout'])) {
+            echo "<h5>$_GET['checkedout']</h5>";
+        }
+        
     //Row <->
     //Col ^|V
     /*This table Displays each Child's Informaton including: isPresent, child's Name,

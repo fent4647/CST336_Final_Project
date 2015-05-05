@@ -44,6 +44,16 @@ function checkIfPresent($res) {
     return $isPresent;
 }
 
+// Childs confirmation code in CURRENTLY_PRESENT table
+function getChildsCode($res) {
+    global $dbConn;
+    $checkPresent = "SELECT confirmationcode FROM currently_present WHERE childid = $1";
+    $stmt = pg_query_params($dbConn, $checkPresent, array($res['0']));
+    $isPresent = pg_fetch_row($stmt);
+    
+    return $isPresent;
+}
+
 
 function getChildInformation($childId) {
     global $dbConn;
