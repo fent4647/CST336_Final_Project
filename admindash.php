@@ -9,13 +9,13 @@
     $stmt = pg_query($dbConn, $sql);
     $result = pg_fetch_all($stmt);
     $Data = array();
-
+    $size = 0;
     if(!empty($result)) {
         foreach($result as $i) {
-            $child = getChildInformation($i['0']); // childs info
-            $cpTable = checkChildParentTable($i); // get parents info
+            $child = getChildInformation($i['childid']); // childs info
             
-            $parent = getParentInformation($cpTable['0']);
+            $parentId = getParentFromChildParentTable($child['0']); // get parents info
+            $parent = getParentInformation($parentId['0']);
             
             $kid = array();
             $kid[] = "Present";
@@ -23,9 +23,11 @@
             $kid[] = $child['6'] . " " .  $child['7'] . " " .  $child['8'];
             $kid[] = $parent['1'] . " " . $parent['2'];
             $kid[] = $parent['3'];
+            $kid[] = "<form action='update.php'><input type='submit' name='update' value='Update'></form>";
+            $kid[] = "<form action='checkout.php'><input type='submit' name='checkout' value='Checkout'></form>";
             $Data[] = $kid;  
           
-            
+            $size++;
         }
     }
     
@@ -43,9 +45,8 @@
             <div id="header">
                 <h1>Admin Panel</h1>
                 <nav>
-                    <a href="">Main</a>
-                    <a href="">Checked In</a>
-                    <a href="">Checkout</a>
+                    <a href="admindash.php">Checked In</a>
+                    <a href="history.php">History</a>
                     <a href="logout.php">Logout</a>
                 </nav>
                 <br />
@@ -60,7 +61,7 @@
      *          First for loop displays the table header.
      *          Second for loop displays each of the child's information Row by Row.
      */
-            $Header = ["Present", "Child Name", "Allergies", "Emergency Contact Name", "Emergency Contact Number"];
+            $Header = ["Present", "Child Name", "Allergies", "Emergency Contact Name", "Emergency Contact Number", "Update Info", "Checkout"];
             
             //$i = 0;
       foreach ($Header as $header){
