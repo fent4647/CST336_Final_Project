@@ -20,7 +20,9 @@
         pg_query_params($dbConn, $sql, array($codes[$i], $res['0']));
         
         // Add to HISTORY table
-       
+        $sql = "INSERT INTO history (childid, confirmationcode) VALUES ($1, $2)";
+        pg_query_params($dbConn, $sql, array($res['0'], $codes[$i]));
+                    
     }
 
 ?>
