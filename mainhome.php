@@ -20,6 +20,7 @@
                   -o-background-size: cover;
                   background-size: cover;
                 }
+            
             #wrapper {
                 border: 2px solid #ffffff;
                 box-shadow: 10px 10px 5px #e5e5e5;
@@ -104,7 +105,7 @@
          $('#hiddenButton').click(function() {
                 $('#admin, #operationA, #headerTwo').css('display', 'inline');
                 $('#adminLogin').slideToggle(1000);
-             //   $("#operationP").html("Login as ");   FIX
+                $('#wrapper').css('height', '512px', '!important');
          });
         
         
