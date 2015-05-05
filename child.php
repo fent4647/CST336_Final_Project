@@ -53,7 +53,7 @@
             function checkValid() {
                 $.ajax({
                 type: "get",
-                url: "http://ringo-finance.codio.io:3000/CST336_Final_Project/includes/confirmationCodes.php",
+                url: "includes/confirmationCodes.php",
                 dataType: "json",
                 data: {"code": $('#code').val()},
                 success: function(data, status) {

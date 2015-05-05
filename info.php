@@ -105,7 +105,7 @@
         function checkParentInformation() {
             $.ajax({
                 type: "get",
-                url: "http://ivory-orca.codio.io:3000/CST336_Final_Project/includes/parentdb.php",
+                url: "includes/parentdb.php",
                 dataType: "json",
                 data: {"firstName": $('#pFirstName').val().toLowerCase(), "lastName": $('#pLastName').val().toLowerCase()},
                 success: function(data, status) {
@@ -115,7 +115,7 @@
                     }else {
                         sessionStorage.setItem('parentFirstName', $('#pFirstName').val().toLowerCase());
                         sessionStorage.setItem('parentLastName', $('#pLastName').val().toLowerCase());
-                        window.location.replace("http://ringo-finance.codio.io:3000/CST336_Final_Project/newParent.php");
+                        window.location.replace("newParent.php");
                     }
                 },
                 complete: function(data, status) {
