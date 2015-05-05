@@ -87,7 +87,7 @@
         }
      ?>
     </table>
-    <button onclick="location.href='http://ringo-finance.codio.io:3000/CST336_Final_Project/mainhome.php'">Confirm</button>
+    <button onclick="mainhome.php'">Confirm</button>
     </div>
 </body>
 </html>
