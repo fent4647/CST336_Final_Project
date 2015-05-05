@@ -6,27 +6,3 @@
     Purpose of the stylesheet follows.
     To change this template use Tools | Templates.
 */
-
-body {
-    font-family: 'Armata', sans-serif;
-}
-
-#header {
-    
-    box-shadow: 10px 10px 5px #e8e8e8;
-    background:#d0ecf2;
-    text-align:center;
-} 
-
-#loginForm {
-    margin:auto;
-}
-
-
-#loginForm {
-    padding:16px;    
-}
-
-body {
-    background:#000;
-}

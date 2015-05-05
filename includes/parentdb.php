@@ -1,4 +1,8 @@
 <?php
+// JSON/AJAX
+// Checks to see if the parents name is in the database
+// Returns TRUE if the PARENT is already in the database, otherwise FALSE.
+
     session_start();
     require('connect.php');
     $dbConn = getConnection();

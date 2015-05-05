@@ -15,29 +15,7 @@
                   -o-background-size: cover;
                   background-size: cover;
                 }
-            #wrapper {
-                border: 2px solid #ffffff;
-                box-shadow: 10px 10px 5px #e5e5e5;
-                background:#46c8e2;
-                text-align:center;
-                
-                width:512px;
-                height:128px;
-                position: absolute;
-                top:0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-
-                margin: auto;
-                padding-top:8px !important;
-                padding:64px;
-            }
-            
-            p {
-                float:left;
-            }
-            
+           
             #linkSwitch {
                 color:#FF0000;
             }

@@ -3,6 +3,7 @@
 /* FUNCTION TABLES */
 
 // Child is in Child Table
+// Returns the childid by looking for the firstname and lastname
 function checkChildsExistance($i, $firstNames, $lastNames) {
     global $dbConn;
     $sql = "SELECT childid FROM child WHERE firstname = $1 AND lastname = $2";
@@ -12,7 +13,8 @@ function checkChildsExistance($i, $firstNames, $lastNames) {
     return $res;
 }
 
-// Child/Parent is in CHILD_PARENT_TABLE
+// Get the Child/Parent information using parents id and childs is in CHILD_PARENT_TABLE
+// Returns all the information fromt the child_parent_table
 function checkChildParentTable($res) {
     global $dbConn;
     $sqlCheck = "SELECT * FROM child_parent_table WHERE parentid = $1 AND childid = $2";
@@ -23,7 +25,8 @@ function checkChildParentTable($res) {
 }
 
 
-// GET is in CHILD_PARENT_TABLE
+// GET the parent id with just using childs ID in CHILD_PARENT_TABLE
+// Returns the parentsID from the childParentTable
 function getParentFromChildParentTable($id) {
     global $dbConn;
     $sqlCheck = "SELECT parentid FROM child_parent_table WHERE childid = $id";
@@ -35,6 +38,7 @@ function getParentFromChildParentTable($id) {
 
 
 // Child in CURRENTLY_PRESENT table
+// Returns the childsId from Currently present using the Childs Id from child Table
 function checkIfPresent($res) {
     global $dbConn;
     $checkPresent = "SELECT childid FROM currently_present WHERE childid = $1";
@@ -45,6 +49,7 @@ function checkIfPresent($res) {
 }
 
 // Childs confirmation code in CURRENTLY_PRESENT table
+// Returns the confirmation code using the childs id
 function getChildsCode($res) {
     global $dbConn;
     $checkPresent = "SELECT confirmationcode FROM currently_present WHERE childid = $1";
@@ -54,7 +59,8 @@ function getChildsCode($res) {
     return $isPresent;
 }
 
-
+// Get all the Childs Information
+// Returns everyhing from child table using the child id
 function getChildInformation($childId) {
     global $dbConn;
     $checkPresent = "SELECT * FROM child WHERE childid = $1";
@@ -64,7 +70,8 @@ function getChildInformation($childId) {
     return $isPresent;
 }
 
-
+// Gets Parents Information
+// Returns All information from parent using the parent Id
 function getParentInformation($parentId) {
     global $dbConn;
     $checkPresent = "SELECT * FROM parent WHERE parentid = $parentId";

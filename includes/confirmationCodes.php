@@ -1,4 +1,8 @@
 <?php
+    // JSON/AJAX
+    // This checks to see if the Confirmation code the user hs typed in is avaliable
+    // Returns TRUE if avaliable, otherwise FALSE
+    
     require('connect.php');
     $dbConn = getConnection();
     

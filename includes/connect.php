@@ -1,4 +1,6 @@
 <?php
+
+// CONNECTION TO DATABASE
     function getConnection() {
        
         $host = "ec2-107-22-161-155.compute-1.amazonaws.com"; 
