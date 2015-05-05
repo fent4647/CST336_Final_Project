@@ -10,12 +10,15 @@
     require('includes/childFunctions.php');    
     $dbConn = getConnection();
 /* Requirements */
-$_SESSION['parentId'] = -1;
+
+$_SESSION['parentId'] = -1; // an empty parentId
+
 ?>
 
 <!DOCTYPE HTML>
 <html>
     <head>
+        
         <meta charset="UTF-8"/>
         <title>Parent/Child</title>
         <link href="css/main_stylesheet.css" rel="stylesheet" />
@@ -48,12 +51,15 @@ $_SESSION['parentId'] = -1;
             
             function displayChildren() {
                 
-                $('#childrenAmount, #childrenSubmitButton')
+                $('#childrenAmount')
                     .css('display', 'inline');
                 $('#wrapper').css('height', '512px');
                 
+                $('#parentInformation').css('display', 'none');
+                
             }
         
+            
             
             function updateFormAmount() {
                 
@@ -70,11 +76,12 @@ $_SESSION['parentId'] = -1;
                         $('#information3, #data').css('display', 'block');
                     case "2":
                         $('#information2, #data').css('display', 'block');
-                        $('#wrapper').css('height', '1168px');
                     case "1":
                         $('#information1, #data').css('display', 'block');
+                        $('#childrenSubmitButton').css("display", "block");
                         break;
                     default:
+                        $('#childrenSubmitButton').css("display", "none");
                 }
             }
         
@@ -90,7 +97,6 @@ $_SESSION['parentId'] = -1;
                         if(data['exists']) {
                             
                             displayChildren();
-                            hideParent();
                             
                         }else {
                             
@@ -124,7 +130,8 @@ $_SESSION['parentId'] = -1;
                         <h4>Parent's Information</h4>
                         
                         <?php
-
+    
+                           // If Parent Created Account.
                           if(isset($_GET['parentMade'])) {
                               
                                 echo "<h5 style='color:#FF0000'>" . $_GET['parentMade'] . "</h5>";
@@ -170,17 +177,21 @@ $_SESSION['parentId'] = -1;
                     
                     ?>
                     
-                    <select id="childrenAmount" name="children">
+                    <div id="selection_tab">
                         
-                        <option>Add a Child</option>
-                        <option name="1">1</option>
-                        <option name="2">2</option>
-                        <option name="3">3</option>
-                        <option name="4">4</option>
-                        <option name="5">5</option>
+                        <select class="mysubmitbutton" id="childrenAmount" name="children">
                         
-                    </select>
-                    
+                            <option>Add a Child</option>
+                            <option name="1">1</option>
+                            <option name="2">2</option>
+                            <option name="3">3</option>
+                            <option name="4">4</option>
+                            <option name="5">5</option>
+                        
+                        </select>
+                        
+                    </div> <!-- SELECTION TAB -->
+                        
                     <div id="information1">
                         
                         <fieldset>

@@ -25,3 +25,9 @@ root {
 #childrenAmount {
       display:none;
 }
+
+#selection_tab {
+    width:78px;
+    margin:auto;
+    background:#fff;
+}

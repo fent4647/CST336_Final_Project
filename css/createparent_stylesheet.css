@@ -1,0 +1,28 @@
+/*
+    Document   : CST336_Final_Project/css/createparent_stylesheet.css
+    Created on : 2015-05-05 05:09 PM
+    Author     : saymtfmtfmtf
+    Description:
+    Purpose of the stylesheet follows.
+    To change this template use Tools | Templates.
+*/
+
+root {
+    display: block;
+}
+
+#header { 
+    background: rgba(255, 204, 153, .5); 
+    padding:16px;
+}
+
+#heading {
+    width:256px;
+    margin:auto;
+}
+
+#form {
+    width:128px;
+    margin:auto;
+    display: none;
+}

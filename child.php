@@ -49,6 +49,7 @@
         <meta charset='UTF-8'>
         <title></title>
         <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript" src="js/checkValid.js"></script>
         <script>
             function checkValid() {
                 $.ajax({
@@ -64,6 +65,7 @@
                     }else if(data['free']){
                         $('#valid').css({'color': '#00FF00', 'padding-left': '4px'});
                         $('#valid').html('Confirmation # Free');
+                        
                     }
                     
                 },

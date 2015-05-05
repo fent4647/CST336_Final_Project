@@ -1,5 +1,5 @@
-function checkValid() {
+function checkValid($idName) {
     
-    document.getElementById("#correctFormat").html = "√";
+    document.getElementById($idName).html = "√";
 
 }
