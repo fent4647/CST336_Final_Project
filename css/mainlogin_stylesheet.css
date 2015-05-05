@@ -1,0 +1,22 @@
+/*
+    Document   : CST336_Final_Project/css/mainlogin_stylesheet.css
+    Created on : 2015-05-05 05:32 AM
+    Author     : saymtfmtfmtf
+    Description:
+    Purpose of the stylesheet follows.
+    To change this template use Tools | Templates.
+*/
+
+root {
+    display: block;
+}
+
+#panels {
+    width:286px;
+    height:128px;
+    margin-top:256px;
+}
+
+#parent, #admin { float:right; }
+
+span { font-size:2em; }

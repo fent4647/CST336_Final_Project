@@ -36,6 +36,15 @@ function getParentFromChildParentTable($id) {
     return $in;
 }
 
+// GET the parent id with just using the session
+// Returns the parentsID from the childParentTable
+function getParentChildId() {
+        $dbConn = getConnection();
+        $sql = "SELECT * FROM child_parent_table WHERE parentid = " . $_SESSION['parentId'];
+        $stmt = pg_query($dbConn, $sql);  
+        $idResults = pg_fetch_all_columns($stmt);
+        return $idResults;
+    }
 
 // Child in CURRENTLY_PRESENT table
 // Returns the childsId from Currently present using the Childs Id from child Table

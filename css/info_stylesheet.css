@@ -1,0 +1,27 @@
+/*
+    Document   : CST336_Final_Project/css/info_stylesheet.css
+    Created on : 2015-05-05 07:35 AM
+    Author     : saymtfmtfmtf
+    Description:
+    Purpose of the stylesheet follows.
+    To change this template use Tools | Templates.
+*/
+
+root {
+    display: block;
+}
+
+#header { background: rgba(255, 204, 153, .5); }
+    
+#heading {
+    padding:16px;
+    width:512px;
+    margin:auto;
+}
+
+
+#information1, #information2, #information3, 
+#information4, #information5, #childrenSubmitButton, 
+#childrenAmount {
+      display:none;
+}

@@ -1,0 +1,38 @@
+/*
+    Document   : CST336_Final_Project/css/admindash_stylesheet.css
+    Created on : 2015-05-05 06:16 AM
+    Author     : saymtfmtfmtf
+    Description:
+    Purpose of the stylesheet follows.
+    To change this template use Tools | Templates.
+*/
+
+root {  display: block; }
+
+a { 
+    color:rgb(255, 153, 20) !important;
+    margin-left:16px;
+}
+
+a:hover {
+    text-decoration: underline;
+    color:#FF0000 !IMPORTANT;
+}
+
+#header { background: rgba(255, 204, 153, .5); }
+
+#navigation_panel {
+    width:398px;
+    margin:auto;
+}
+
+#heading_panel {
+    width:256px;
+    margin:auto;
+    padding-bottom:16px;
+}
+
+#data_table { 
+    width:864px;
+    margin:auto;
+}

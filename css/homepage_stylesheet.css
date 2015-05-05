@@ -1,0 +1,71 @@
+/*
+    Document   : CST336_Final_Project/css/homepage_stylesheet.css
+    Created on : 2015-05-05 04:49 AM
+    Author     : saymtfmtfmtf
+    Description:
+    Purpose of the stylesheet follows.
+    To change this template use Tools | Templates.
+*/
+
+root { display: block; }
+
+#title {
+    width:512px;
+    margin:auto;
+    font-size:3em;
+}
+
+#wrapper { background: rgba(255, 204, 153, .5); }
+
+
+#login_header {
+    -webkit-animation: color_change 1s infinite alternate;
+    -moz-animation: color_change 1s infinite alternate;
+    -ms-animation: color_change 1s infinite alternate;
+    -o-animation: color_change 1s infinite alternate;
+    animation: color_change 1s infinite alternate;
+    width:256px;
+    margin:auto;
+}
+
+#link_switch { 
+    padding-top:4px;
+    color:#FF0000; 
+    margin:auto;
+    width:316px;
+}
+
+#login_form {
+    display:none;
+}
+
+#form {
+    width:512px !important;
+    margin:auto;
+}
+
+span {  margin-left:8px; }
+
+/* Pulsate Login Button */
+@-webkit-keyframes color_change {
+ from { color: red; }
+ to { color: green; }
+}
+@-moz-keyframes color_change {
+ from { color: red; }
+ to { color: green; }
+}
+@-ms-keyframes color_change {
+ from { color: red; }
+ to { color: green; }
+}
+@-o-keyframes color_change {
+ from { color: red; }
+ to { color: green; }
+}
+@keyframes color_change {
+ from { color: red; }
+ to { color: green; }
+}
+
+
