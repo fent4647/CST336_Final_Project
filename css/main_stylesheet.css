@@ -8,7 +8,7 @@
 */
 @import url(http://fonts.googleapis.com/css?family=Kaushan+Script);
 
-body, input.mysubmitbutton, select.mysubmitbutton {
+body, input.mysubmitbutton, select.mysubmitbutton, button.mysubmitbutton {
     font-family: 'Kaushan Script', cursive;
 }
 

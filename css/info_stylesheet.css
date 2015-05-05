@@ -19,6 +19,10 @@ root {
     margin:auto;
 }
 
+h5, h4 {
+    letter-spacing: 2px;
+    font-size:18px;
+}
 
 #information1, #information2, #information3, 
 #information4, #information5, #childrenSubmitButton, 
@@ -29,5 +33,4 @@ root {
 #selection_tab {
     width:78px;
     margin:auto;
-    background:#fff;
 }

@@ -1,0 +1,24 @@
+/*
+    Document   : CST336_Final_Project/css/confirmation_stylesheet.css
+    Created on : 2015-05-05 08:10 PM
+    Author     : saymtfmtfmtf
+    Description:
+    Purpose of the stylesheet follows.
+    To change this template use Tools | Templates.
+*/
+
+root {
+    display: block;
+}
+
+#table {
+    padding:10px;
+    width:256px;
+    margin:auto;
+}
+
+#wrapper {
+    width:100%;
+    text-align:center;
+    background: rgba(255, 204, 153, .5); 
+}

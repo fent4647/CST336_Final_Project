@@ -1,0 +1,17 @@
+/*
+    Document   : CST336_Final_Project/css/child_stylesheet.css
+    Created on : 2015-05-05 07:56 PM
+    Author     : saymtfmtfmtf
+    Description:
+    Purpose of the stylesheet follows.
+    To change this template use Tools | Templates.
+*/
+
+root {
+    display: block;
+}
+
+#form {
+    width:512px;
+    margin:auto;
+}

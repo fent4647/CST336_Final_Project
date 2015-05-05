@@ -13,6 +13,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
+        
         <meta charset="UTF-8"/>
         <title>Heir Force</title>
         <link href="css/main_stylesheet.css" rel="stylesheet" />

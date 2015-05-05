@@ -30,65 +30,81 @@
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-    <title>Confirmation</title>
-    <link href="css/style.css" rel="stylesheet"/>
-    <style>
-            
-            #wrapper {
-                border: 2px solid #ffffff;
-                box-shadow: 10px 10px 5px #e5e5e5;
-                background:#46c8e2;
-                text-align:center;
-                
-                width:512px;
-                position: absolute;
-                top:0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-
-                margin: auto;
-                
-            }
-            
-            p {
-                float:left;
-            }
-            
-            #linkSwitch {
-                color:#FF0000;
-            }
+  <head>
+      
+        <meta charset="UTF-8"/>
+        <title>Heir Force</title>
+        <link href="css/main_stylesheet.css" rel="stylesheet" />
+        <link href="css/confirmation_stylesheet.css" rel="stylesheet" />
+        <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
         
+        <style>
+            
+            html { 
+                  background: url(img/background.jpg) no-repeat center center fixed; 
+                  -webkit-background-size: cover;
+                  -moz-background-size: cover;
+                  -o-background-size: cover;
+                  background-size: cover;
+            }
+            
       </style>
-</head>
-<body>
-    <div id="wrapper">
-    <h1>Confirmation #'s</h1>
-    <table border=1>
-    <tr>
-         <th>Child Name</th>
-         <th>Their Confirmation Code</th>
-         </tr>
-     <?php 
-        for($i = 0; $i < sizeof($firstNames); $i++) {
-            // Display Their Codes
-            echo "<tr>";
-            echo "<td>" . $firstNames[$i] . "</td>";
+        
+      <script>
+          function button() {
+            document.getElementById(button).value = "Confirm";
+          }
+      </script>
+        
+    </head>
+    
+    <body onload="button">
+    
+        <div id="wrapper">
+        
+            <h1 id="header">Confirmation #'s</h1>
             
+            <div id="table">
             
-            // GET THE Childs ConfirmationCodes
-            $res = checkChildsExistance($i, $firstNames, $lastNames); // get child
-            $sql = "SELECT confirmationcode FROM currently_present WHERE childid = $1";
-            $stmt = pg_query_params($dbConn, $sql, array($res['0']));
-            $result = pg_fetch_row($stmt);
-            echo "<td>" . $result['0'] . "</td>";
-            echo "</tr>";
-        }
-     ?>
-    </table>
-        <button onclick="location.href='mainhome.php'">Confirm</button>
+                <table border=1>
+            
+                    <tr>
+                        <th>Child Name</th>
+                        <th>Their Confirmation Code</th>
+                    </tr>
+            
+                    <?php 
 
-    </div>
-</body>
+                    if(sizeof($firstNames) == 0) { header("Location: mainhome.php"); }
+                    else {
+                        
+                        for($i = 0; $i < sizeof($firstNames); $i++) {
+                
+                            // Display Their Codes
+                            echo "<tr>";
+                            echo "<td>" . $firstNames[$i] . "</td>";
+            
+            
+                             // GET THE Childs ConfirmationCodes
+                            $res = checkChildsExistance($i, $firstNames, $lastNames); // get child
+                            $sql = "SELECT confirmationcode FROM currently_present WHERE childid = $1";
+                            $stmt = pg_query_params($dbConn, $sql, array($res['0']));
+                            $result = pg_fetch_row($stmt);
+                            echo "<td>" . $result['0'] . "</td>";
+                            echo "</tr>";
+                        }
+                
+                    }
+                
+                    ?>
+            
+                </table>
+                
+            </div> <!-- TABLE -->
+            
+            <button class="mysubmitbutton" onclick="location.href='mainhome.php'" value="Confirm"/>
+
+        </div>
+    
+    </body>
 </html>
