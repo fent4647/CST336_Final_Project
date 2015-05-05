@@ -61,24 +61,21 @@
                 padding:3px;
             }
             
+            img {
+                padding:24px;
+            }
+            
         </style>
         
         
-        <script>
-            function parentButton() {
-                document.getElementById('parent').innerHTML = "Parent";
-            }
-            
-            
-        </script>
     
     </head>
     
     <body onload="parentButton()">
         <div id="wrapper">
             
-            <span id="operationP"></span><a href="info.php" id="parent"></a>
-            <span id="operationA"></span><a id="admin">Admin</a>
+            <span id="operationP"></span><a href="info.php" id="parent"><img src="img/parent.png"></a>
+            <span id="operationA"></span><a id="admin"><img src="img/settings.png"></a>
             <div id="adminLogin">
                 <p>
                     <?php
@@ -91,7 +88,7 @@
                 <h3 id="headerTwo"></h3>
                 <form action="adminLogin.php" method="post">
                     Username: <input type="text" name="username"/>
-                    Password: <input type="password" name="password"/><br /><br />
+                    Password: <input type="password" name="password"/>
                     <input type="submit" value="Login"/>
                 </form>
             </div>
@@ -101,9 +98,7 @@
     </body>
     
     <script>
-         $("#operationP").html("Is this a ");  
-         $("#operationA").html("or an "); 
-         $('#headerTwo').html('Admin Login');
+         
         
         
          $('#hiddenButton').click(function() {

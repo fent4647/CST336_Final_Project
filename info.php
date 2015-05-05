@@ -45,7 +45,6 @@
                 width:512px;
                 position: absolute;
                 top:0;
-                bottom: 0;
                 left: 0;
                 right: 0;
 
@@ -79,6 +78,7 @@
         function displayChildren() {
             $('#childrenAmount, #childrenSubmitButton')
                 .css('display', 'inline');
+            $('#wrapper').css('height', '512px');
         }
         
         function updateFormAmount() {
@@ -95,6 +95,7 @@
                     $('#information3, #data').css('display', 'block');
                 case "2":
                     $('#information2, #data').css('display', 'block');
+                    $('#wrapper').css('height', '1168px');
                 case "1":
                     $('#information1, #data').css('display', 'block');
                     break;
@@ -128,6 +129,7 @@
     <body>
         <div id="wrapper">
             <h1>Parent and Child Information</h1>
+            <a href="mainhome.php"><img style="float:left" src="img/back.png" alt="Back Button"/></a>
                 <div id="parentInformation">
                     <fieldset>
                         <h4>Parent's Information</h4>
