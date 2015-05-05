@@ -135,8 +135,8 @@
                         }else {
                             
                             echo "<tr>";
-                            echo "<td  colspan='7' style='color:#FF0000; font-size:3em;' >";
-                            echo "Currently, no one is checked in.";
+                            echo "<td  colspan='7' style='color:#FF0000; font-size:2em;' >";
+                            echo "There is no history.";
                             echo "</td>";
                             echo "</tr>";
                             
