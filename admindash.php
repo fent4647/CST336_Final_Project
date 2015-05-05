@@ -8,6 +8,8 @@
     $sql = "SELECT * FROM currently_present";
     $stmt = pg_query($dbConn, $sql);
     $result = pg_fetch_all($stmt);
+    
+
     $Data = array();
     $size = 0;
     if(!empty($result)) {
@@ -19,12 +21,19 @@
             
             $kid = array();
             $kid[] = "Present";
-            $kid[] = $child['1'] . " " . $child['3'];
-            $kid[] = $child['6'] . " " .  $child['7'] . " " .  $child['8'];
-            $kid[] = $parent['1'] . " " . $parent['2'];
-            $kid[] = $parent['3'];
-            $kid[] = "<form action='update.php'><input type='submit' name='update' value='Update'></form>";
-            $kid[] = "<form action='checkout.php'><input type='submit' name='checkout' value='Checkout'></form>";
+            $kid[] = $child['1'] . " " . $child['3']; // FIRST AND LAST NAME
+            $kid[] = $child['6'] . " " .  $child['7'] . " " .  $child['8']; //dem ALLERGIES, AND SUCH 
+            $kid[] = $parent['1'] . " " . $parent['2']; // PARENTS FIRST AND LAST NAME
+            $kid[] = $parent['3']; // dat PHONE # gurrl
+            $kid[] = "<form action='update.php'>
+                        <input type='submit' name='update' value='Update'>
+                        <input type='hidden' name='childId' value=" . $child['0'] . ">
+                    </form>";
+            $kid[] = "<form action='checkout.php'>
+                        <input type='submit' name='checkout' value='Checkout'>
+                        <input type='hidden' name='childId' value=" . $child['0'] . ">
+                        <input type='hidden' name='parentId' value=" . $parentId['0'] . ">
+                     </form>";
             $Data[] = $kid;  
           
             $size++;
@@ -72,6 +81,7 @@
           }//closes foreach Loop */
     //====================================================================
     
+
     foreach ($Data as $data){    
         echo"<tr>";
         //echo "<td>";
