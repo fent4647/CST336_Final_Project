@@ -90,5 +90,38 @@ function getParentInformation($parentId) {
     return $isPresent;
 }
 
+// Gets Parents Information
+// Returns All information from parent using the parent Id
+function getParentInformationName($parentId) {
+    global $dbConn;
+    $checkPresent = "SELECT * FROM parent WHERE parentid = $parentId SORT BY lastname";
+    $stmt = pg_query($dbConn, $checkPresent);
+    $isPresent = pg_fetch_row($stmt);
+    
+    return $isPresent;
+}
+
+// Gets Information Sorted By LastName
+// Returns All information from parent using the parent Id
+function getChildInformationLastName($childId) {
+    global $dbConn;
+    $checkPresent = "SELECT * FROM child WHERE childid = $1 SORT BY lastname";
+    $stmt = pg_query_params($dbConn, $checkPresent, array($childId));
+    $isPresent = pg_fetch_row($stmt);
+    
+    return $isPresent;
+}
+
+// Gets Information Sorted By FirstName
+// Returns All information from parent using the parent Id
+function getChildInformationFirstName($childId) {
+    global $dbConn;
+    $checkPresent = "SELECT * FROM child WHERE childid = $1 SORT BY firstname";
+    $stmt = pg_query_params($dbConn, $checkPresent, array($childId));
+    $isPresent = pg_fetch_row($stmt);
+    
+    return $isPresent;
+}
+
 /* EOF FUNCTION TABLES */
 ?>

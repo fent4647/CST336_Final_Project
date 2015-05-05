@@ -9,12 +9,11 @@
     require('includes/childFunctions.php');    
     $dbConn = getConnection();
 /* Requirements */
-
-
+  
     $sql = "SELECT * FROM currently_present";
     $stmt = pg_query($dbConn, $sql);
     $result = pg_fetch_all($stmt);
-    
+       
 
     $Data = array();
     $size = 0;
@@ -102,6 +101,16 @@
                         
                 </nav>
                 
+                <!--
+                <div id="sorting_buttons">
+                    
+                    <span>Sort By: </span>
+                    <input class="mysubmitbutton" type="submit" id="byLastName" name="byLastName" value="Last Name" />
+                    <input class="mysubmitbutton" type="submit" id="byFirstName" name="byFirstName" value="First Name" />
+                    <input class="mysubmitbutton" type="submit" id="byContactName" name="byContactName" value="Contact Name" />
+                    
+                </div> <!-- SORTING_BUTTONS -->
+                
             </div> <!-- HEADER -->
             
             
@@ -171,4 +180,9 @@
         </div> <!-- WRAPPER -->
         
     </body>
+    
+    <script>
+        
+    </script>
+    
 </html>

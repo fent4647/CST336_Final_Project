@@ -32,6 +32,11 @@ a:hover {
     padding-bottom:16px;
 }
 
+#sorting_buttons {
+    width:356px;
+    margin:auto;
+}
+
 #data_table { 
     width:864px;
     margin:auto;
