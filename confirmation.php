@@ -50,15 +50,10 @@
             
       </style>
         
-      <script>
-          function button() {
-            document.getElementById(button).value = "Confirm";
-          }
-      </script>
-        
+      
     </head>
     
-    <body onload="button">
+    <body>
     
         <div id="wrapper">
         
@@ -102,7 +97,7 @@
                 
             </div> <!-- TABLE -->
             
-            <button class="mysubmitbutton" onclick="location.href='mainhome.php'" value="Confirm"/>
+            <button class="mysubmitbutton" onclick="location.href='mainhome.php'" id="confirm">Confirm</button>
 
         </div>
     

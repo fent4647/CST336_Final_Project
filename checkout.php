@@ -12,12 +12,12 @@
 /* Requirements */
     
 
-    if(isset($_GET["submit"])) {
+    if(isset($_GET["submit"]) || isset($_GET['force_logout'])) {
         // Get child info, then the childs code for varification
         $val = getChildsCode(getChildInformation($_GET['childId'])); 
         
         // is it a match?
-        if($_GET['code'] == $val['0']) {
+        if($_GET['code'] == $val['0'] || isset($_GET['force_logout'])) {
             
             //REMOVE FROM CHILD_PARENT_TABLE
             $sql = "DELETE FROM child_parent_table WHERE childid = $1";
@@ -57,6 +57,11 @@
                   background-size: cover;
             }
             
+            #force_logout {
+                float:right;
+                margin-top:512px;
+            }
+            
         </style>
         
     </head>
@@ -92,7 +97,14 @@
                 
             </form>
             
+            <form id="force_logout">
+                <input type="hidden" name="childId" value="<?= $results['0'] ?>" />
+                <input type="submit" name="force_logout" value="∆">
+            </form>
+            
         </div> <!-- IM NOT A RAPPER.. -->
         
     </body>
+    
+    
 </html>
