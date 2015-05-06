@@ -28,6 +28,14 @@
                   -o-background-size: cover;
                   background-size: cover;
             }
+            #panels{
+                width: 500px;
+                margin: auto;
+                background: white;
+                padding: 90px;
+                border-radius: 10px;
+                border:4px solid black;
+            }
             
         </style>
         
@@ -39,10 +47,13 @@
             
             <a href="includes/logout.php"><img src="img/back.png" alt="Logout"/></a>
             
+
             <div id="panels">
                 
-                <a href="info.php"><img src="img/parent.png" alt="parents"><span id="parent">Parent</span></a>
-                <a href="admindash.php"><img src="img/settings.png" alt="admin"><span id="admin">Admin</span></a>
+                <a href="info.php"><img src="img/parent.png" alt="parents">
+                    <span id="parent">Parent</span></a>
+                <a href="admindash.php"><img src="img/settings.png" alt="admin">
+                    <span id="admin">Admin</span></a>
             
             </div> <!-- PANELS -->
             

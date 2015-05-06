@@ -11,12 +11,9 @@ root {
     display: block;
 }
 
-#panels {
-    width:286px;
-    height:128px;
-    margin-top:256px;
-}
 
-#parent, #admin { float:right; }
+
+#parent, #admin { width: 100%;
+                  margin: auto;}
 
 span { font-size:2em; }
