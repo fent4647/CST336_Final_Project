@@ -158,7 +158,7 @@ $_SESSION['parentId'] = -1; // an empty parentId
                 <br />
             
                 
-            <!-- THEM CHILDRENS FORM -->
+            <!-- EXISTING CHILDRENS FORM -->
                 <form action="child.php">
                     
                     <?php 

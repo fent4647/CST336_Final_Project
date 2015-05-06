@@ -95,7 +95,7 @@
                 <nav id="navigation_panel">
                         
                     <a href="mainhome.php">Main Home</a>
-                    <a href="admindash.php">Checked In</a>
+                    <a href="admindash.php">Checked Out</a>
                     <a href="history.php">History</a>
                     <a href="includes/logout.php">Logout</a>
                         

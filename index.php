@@ -29,6 +29,17 @@
                   -o-background-size: cover;
                   background-size: cover;
             }
+            #information {
+                width: 800px;
+                margin: auto;
+                background: white;
+                padding: 20px;
+                border-radius: 10px;
+                border:4px solid black;
+               }
+            img {
+                border-radius: 10px;
+            }
             
       </style>
         
@@ -36,7 +47,7 @@
     </head>
     
     <body>
-        
+        <br /> <br />
         <div id="wrapper">
             
             <div id="header">
@@ -75,7 +86,23 @@
             </div> <!-- LOGIN FORM -->
          
         </div> <!-- WRAPPER -->
-        
+        <br /> <br /> <br />
+        <div id="information">
+            
+            <p align="center">Heir Force is a cool, vibrant, action-packed children's ministry. We create a warm, 
+                friendly environment for children between ages 5-12. We present the word of God through 
+                multimedia praise and worship,interactive puppet skits and fun activities . As Jesus said 
+                "forsake not the little children from coming" Luke 18:16</p>
+            
+            <table align="center">
+                <tr><td><img src="img/IMG_0039.jpg" alt="Sunday School" width="350px" border=7></td>
+                    <td><img src="img/IMG_0041.jpg" alt="Sunday School" width="350px" border=7></td>
+                </tr>
+                <tr><td><img src="img/IMG_0045.jpg" alt="Sunday School" width="350px" border=7></td>
+                    <td><img src="img/IMG_0047.jpg" alt="Sunday School" width="350px" border=7></td></tr>
+            </table>
+            
+        </div>
     </body>
     
     <script>
