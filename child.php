@@ -77,8 +77,6 @@
                   background-size: cover;
             }
             
-            #submit { display:none; };
-            
         </style>
        
         <script>
