@@ -13,6 +13,8 @@
 
 $_SESSION['parentId'] = -1; // an empty parentId
 
+
+
 ?>
 
 <!DOCTYPE HTML>
@@ -160,9 +162,12 @@ $_SESSION['parentId'] = -1; // an empty parentId
                 <form action="child.php">
                     
                     <?php 
-
+                        if(isset($_GET['finish'])) {
+                            
                         $idResults = getParentChildId();
-
+                    
+                        echo $_SESSION['parentId'];
+    
                         if(!empty($idResults)) {
                             
                             foreach($idResults as $item) {
@@ -174,7 +179,8 @@ $_SESSION['parentId'] = -1; // an empty parentId
                             }
                             
                         }
-                    
+                            
+                        }
                     ?>
                     
                     <div id="selection_tab">

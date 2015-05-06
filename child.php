@@ -77,6 +77,8 @@
                   background-size: cover;
             }
             
+            #submit { display:none; };
+            
         </style>
        
         <script>
@@ -99,7 +101,6 @@
                         $('#valid').css({'color': '#00FF00', 'padding-left': '4px'});
                         $('#valid').html('Confirmation # Free');
                         $('#submit').css('display', 'inline');
-                        
                     }
                     
                 },
@@ -145,7 +146,7 @@
                                     echo "<td>" . $firstNames[$i] . "</td>";
                                     echo "<input type='hidden' name='firstnames[]' value='" . $firstNames[$i] . "' />";
                                     echo "<input type='hidden' name='lastnames[]' value='" . $lastNames[$i] . "' />";
-                                    echo "<td><input type='number' class='code' name='code[]' min='1' require><span id='valid'></span></td>";
+                                    echo "<td><input type='number' class='code' name='code[]' min='1' required><span id='valid'></span></td>";
                                     echo "</tr>";
                             
                                 }else {
@@ -175,6 +176,11 @@
         
     </body>
     
-    <script> $(this).bind('input propertychange', checkValid); </script>
+    <script> 
+        
+        $(this).bind('input propertychange', checkValid); 
+        
+        
+    </script>
     
 </html>
