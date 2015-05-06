@@ -115,7 +115,13 @@
             
             
             <div id="data_table">
-
+                <?php
+                    
+                    $sql = "SELECT COUNT(childid) AS total FROM currently_present";
+                    $stmt = pg_query($dbConn, $sql);
+                    $result = pg_fetch_row($stmt);
+                    echo "<p style='text-align:center;'>Current amount of children: " . $result['0'] . "</p>";
+                ?>
                 <!----------- Start Inserted table ----------->
             
                 <table border="7">
@@ -174,7 +180,7 @@
                 </table>
             
                 <!-----------End  Inserted table ------------------------------->
-           
+            
             </div> <!-- Data Table -->
             
         </div> <!-- WRAPPER -->
