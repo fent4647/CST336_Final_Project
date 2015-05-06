@@ -88,7 +88,14 @@
             
             
             <div id="data_table">
+                <?php
+                    
+                    $sql = "SELECT COUNT(childid) AS total FROM history";
+                    $stmt = pg_query($dbConn, $sql);
+                    $result = pg_fetch_row($stmt);
+                    echo "<p style='text-align:center;'>Total history of children: " . $result['0'] . "</p>";
 
+                ?>
                 <!----------- Start Inserted table ----------->
             
                 <table border="7">

@@ -121,6 +121,7 @@
                     $stmt = pg_query($dbConn, $sql);
                     $result = pg_fetch_row($stmt);
                     echo "<p style='text-align:center;'>Current amount of children: " . $result['0'] . "</p>";
+
                 ?>
                 <!----------- Start Inserted table ----------->
             
